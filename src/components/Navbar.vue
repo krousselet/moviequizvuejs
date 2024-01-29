@@ -39,9 +39,19 @@ export default {
 }
 </script>
 
+
 <style scoped>
 .active {
     text-decoration: underline;
+}
+
+nav {
+    background-color: black !important;
+    color: white !important;
+    border-radius: 0 0 7px 7px !important;
+}
+
+* {
     color: red !important;
 }
 </style>

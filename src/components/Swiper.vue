@@ -10,6 +10,17 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-scrollbar"></div>
     </div>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(serie, serieIndex) in allSeries" :key="serieIndex">
+                <img :src="serie.url" :alt="serie.title">
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
+    </div>
 </template>
 
 <script>
@@ -18,6 +29,9 @@ export default {
     computed: {
         allMovies() {
             return this.games.flatMap(game => game.movies);
+        },
+        allSeries() {
+            return this.games.flatMap(game => game.series);
         },
     },
     mounted() {
