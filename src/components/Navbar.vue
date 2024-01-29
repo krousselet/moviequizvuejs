@@ -20,8 +20,8 @@
                             Dropdown
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li v-for="(dropdown, dropdownIndex) in dropdowns" :key="dropdownIndex"><a class="dropdown-item"
+                                    href="#">{{ dropdown.link.content }}</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -35,7 +35,7 @@
 </template>
 <script>
 export default {
-    props: ['pages', 'activePage'],
+    props: ['pages', 'activePage', 'dropdowns'],
 }
 </script>
 
