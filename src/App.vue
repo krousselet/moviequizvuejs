@@ -1,26 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <header>
+    <NavbarMobile :pages="pages" :activePage="activePage"></NavbarMobile>
+  </header>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavbarMobile from './components/NavbarMobile.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    NavbarMobile,
+  },
+  data() {
+    return {
+      activePage: 0,
+      pages: [
+        {
+          link: {
+            url: '',
+            content: 'Home',
+            title: 'This link goes to ',
+          }
+        },
+        {
+          link: {
+            url: '',
+            content: 'About',
+            title: 'This link goes to ',
+          }
+        },
+        {
+          link: {
+            url: '',
+            content: 'Contact',
+            title: 'This link goes to ',
+          }
+        },
+      ]
+    }
+  },
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style scoped></style>
