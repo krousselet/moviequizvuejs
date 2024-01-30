@@ -1,7 +1,8 @@
 <template>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">MovieQuiz</a>
+            <!-- <a class="navbar-brand" href="#">MovieQuiz</a> -->
+            <img src="./assets/images/Navbar/MOVIEQUIZDarkModDesktop.svg" alt="image d'un logo" id="logo">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -53,5 +54,10 @@ nav {
 
 * {
     color: red !important;
+}
+
+#logo {
+    width: 100px;
+    height: 50px;
 }
 </style>

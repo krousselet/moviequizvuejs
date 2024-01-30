@@ -1,7 +1,8 @@
 <template>
     <div class="swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="(movie, movieIndex) in allMovies" :key="movieIndex">
+            <div class="swiper-slide" v-for="(movie, movieIndex) in allMovies" :key="movieIndex"
+                @click="selectMovie(movie)">
                 <img :src="movie.url" :alt="movie.title">
             </div>
         </div>
@@ -12,7 +13,8 @@
     </div>
     <div class="swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="(serie, serieIndex) in allSeries" :key="serieIndex">
+            <div class="swiper-slide" v-for="(serie, serieIndex) in allSeries" :key="serieIndex"
+                @click="selectSerie(serie)">
                 <img :src="serie.url" :alt="serie.title">
             </div>
         </div>
@@ -26,6 +28,15 @@
 <script>
 export default {
     props: ['games'],
+    emits: ['movie-selected', 'serie-selected'],
+    methods: {
+        selectMovie(movie) {
+            this.$emit('movie-selected', movie);
+        },
+        selectSerie(serie) {
+            this.$emit('serie-selected', serie);
+        },
+    },
     computed: {
         allMovies() {
             return this.games.flatMap(game => game.movies);
@@ -73,7 +84,7 @@ export default {
 }
 
 img {
-    max-height: 250px;
-    max-height: 325px;
+    width: fit-content;
+    height: fit-content;
 }
 </style>

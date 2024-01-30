@@ -2,25 +2,35 @@
   <header>
     <Navbar :pages="pages" :activePage="activePage" :dropdowns="dropdowns"></Navbar>
   </header>
-  <main>
-    <Swiper :games="games"></Swiper>
+  <main class="main">
+    <MovieGuessForm v-if="selectedMovie" :movie="selectedMovie" :activeFormMovie=1></MovieGuessForm>
+    <SerieGuessForm v-if="selectedSerie" :serie="selectedSerie" :activeFormSerie=1></SerieGuessForm>
+    <Swiper v-if="activePage === 0" :games="games" @movieSelected="handleMovieSelect" @serieSelected="handleSerieSelect">
+    </Swiper>
+
   </main>
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue';
 import Swiper from './components/Swiper.vue';
+import MovieGuessForm from './components/MovieGuessForm.vue';
+import SerieGuessForm from './components/SerieGuessForm.vue';
 
 export default {
   name: 'App',
   components: {
     Navbar,
     Swiper,
+    MovieGuessForm,
+    SerieGuessForm
   },
   data() {
 
     return {
       activePage: 0,
+      activeFormMovie: 0,
+      activeFormSerie: 0,
       //********************** NAVBAR DROPDOWNS ******************************/
       dropdowns: [
         {
@@ -104,10 +114,26 @@ export default {
             },
           ],
         }
-      ]
+      ],
+      //************************ DISPLAY MOVIE/SERIE ************************/
+      selectedMovie: null,
+      selectedSerie: null,
+
     }
   },
+  methods: {
+    handleMovieSelect(movie) {
+      this.selectedMovie = movie;
+    },
+    handleSerieSelect(serie) {
+      this.selectedSerie = serie;
+    },
+  }
 }
 </script>
 
-<style scoped></style>
+<style>
+body {
+  background-color: black;
+}
+</style>
